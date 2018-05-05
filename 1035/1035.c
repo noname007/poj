@@ -29,7 +29,7 @@ static int get_input_word(Word store[])
 }
 
 
-int main(int argc, char **argv) {
+int poj_1035(int argc, char **argv) {
 
     int dict_word_num = get_input_word(dict);
     int check_list_len = get_input_word(check_list);
