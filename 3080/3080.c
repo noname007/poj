@@ -34,6 +34,7 @@ int poj_3080(int argc, char **argv) {
                 strncpy(str, s + k, size);
 //                strcpy(str, s);
                 str[size] = 0;
+                int skip = 0;
 
 //                printf("[k:%d,l:%d][base:%s][now:%s]\n", k,l,commonalities, str);
 
@@ -43,14 +44,14 @@ int poj_3080(int argc, char **argv) {
                     char * aaa = strstr(dataset[a],str);
 //                    printf("%s\n",aaa);
                     if(aaa == NULL){
+                        skip = 1;
                         break;
-                    }else{
-
-                        if(commonalities_len  < size || (commonalities_len == size  && strcmp(commonalities, str) > 0)){
-                            strcpy(commonalities, str);
-                            commonalities_len = size;
-                        }
                     }
+                }
+
+                if(!skip && (commonalities_len  < size || (commonalities_len == size  && strcmp(commonalities, str) > 0))){
+                    strcpy(commonalities, str);
+                    commonalities_len = size;
                 }
             }
         }
