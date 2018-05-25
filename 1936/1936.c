@@ -43,7 +43,7 @@ int poj_1936(int argc, char **argv){
 
 //        diplay_byte(flag, t_len);
 
-        // s[i - 1] in t[j - 1] && s[i] == t[j]
+        // s[i - 1] in t[j - 1] && s[i] == t[j]  || s[i] in t[j - 1]
         char FIRST_COND = IN;
 
         for (int i =  0; i < s_len; ++i) {
