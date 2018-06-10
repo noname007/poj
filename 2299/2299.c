@@ -4,9 +4,16 @@
  *  Created on: 2018年6月10日
  *      Author: yangzhen
  */
+
+
 #include <stdio.h>
 //#include <stdlib.h>
-
+#ifdef __MAIN__
+#define log(fmt, args...)
+//printf(fmt,##args);
+#else
+#define log(fmt, args...)
+#endif
 int input[500005];
 
 static long long int swap_num = 0;
@@ -15,16 +22,18 @@ int temp[500005];
 
 void merge(int * base, int start,int mid, int end) {
 
-    printf("merge: [%d %d) [%d %d)\n", start,  mid, mid, end );
+    log("merge: [%d %d) [%d %d)\n", start,  mid, mid, end );
     int temp_index = start;
     int i = start, j = mid;
 
     while( i < mid && j < end) {
-        printf("cmp %d:%d %d:%d\n",i,base[i],j,base[j]);
+        log("cmp %d:%d %d:%d\n",i,base[i],j,base[j]);
         if(base[i] <=  base[j]) {
             temp[temp_index] = base[i];
             ++i;
         }else{
+            log("inc %d", mid - i);
+            swap_num += mid - i;
             temp[temp_index] = base[j];
             ++j;
         }
@@ -43,7 +52,7 @@ void merge(int * base, int start,int mid, int end) {
 
 
 void mergesort(int * base, int start, int end) {
-    printf("[%d %d)\n", start, end);
+    log("[%d %d)\n", start, end);
     if(start + 1 >= end) {
         return ;
     }
@@ -57,8 +66,10 @@ void mergesort(int * base, int start, int end) {
 
 
 #ifdef __MAIN__
+#define log(fmt, args...) printf(fmt,##args);
 int poj_2299(int argc, char **argv){
 #else
+#define log(fmt, args...)
 int main(int argc, char **argv) {
 #endif
 
@@ -73,12 +84,12 @@ int main(int argc, char **argv) {
 
         mergesort(input, 0, input_num);
 
-        p = input;
-        for (int i = 0; i < input_num; ++i) {
-            printf("%d\n", *p++);
-        }
+//        p = input;
+//        for (int i = 0; i < input_num; ++i) {
+//            log("%d\n", *p++);
+//        }
 
-//        printf("%lld\n", swap_num);
+        printf("%lld\n", swap_num);
     }
 
     return 0;
