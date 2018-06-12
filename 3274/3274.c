@@ -17,6 +17,7 @@
 int Hash[100005];
 int next[100005];
 
+int sum[100005][32], mid_arr[100005][32];
 
 int hash(const int  v[], int k) {
 
@@ -39,7 +40,7 @@ int main(int argc, char **argv) {
     int N, K;
     scanf("%d%d", &N, &K);
 
-    int sum[N][32], mid_arr[N][32], t;
+    int  t;
 
     memset(Hash, -1, sizeof(Hash));
 
