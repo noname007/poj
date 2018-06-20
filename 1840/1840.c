@@ -15,6 +15,8 @@
 #define MAX 18750000
 
 static int hash[MAX * 2 + 100];
+//ld warning
+//
 
 #ifdef __MAIN__
 #define info_log(fmt, args...) printf("%s:%d:%s "fmt,__FILE__,__LINE__,__FUNCTION__,##args);
