@@ -15,7 +15,10 @@ int main(int argc, char **argv) {
 //    poj_2299(argc, argv);
 //    poj_3349(argc, argv);
 //    poj_3274(argc, argv);
-    call_poj(3274)
+//    call_poj(3274)
+//      call_poj(2151)
+      call_poj(1840)
+
     return 0;
 }
 
