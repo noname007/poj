@@ -25,15 +25,15 @@ int main(int argc, char **argv) {
 //    and the number of problems N that the organizer expect
 //    the champion solve at least
 
-    while(~scanf("%d%d%d",&M,&N,&T)){
+    while(~scanf("%d%d%d",&M,&T, &N)){
 
+        log("%d %d %d\n", M, N, T);
         if(M==0 && T==0 && N==0)
             break;
 
         for(int i=1; i<=T; i++) {
             for(int j=1; j<=M; j++) {
                 scanf("%lf",&p[i][j]);
-
             }
         }
 
