@@ -8,13 +8,10 @@
 
 
 #include<stdio.h>
-#include<memory.h>
-
-
 
 #define MAX 18750000
 
-static int hash[MAX * 2 + 100];
+short hash[MAX * 2 + 100];
 //ld warning
 //
 
