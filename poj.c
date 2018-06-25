@@ -19,7 +19,8 @@ int main(int argc, char **argv) {
 //      call_poj(2151)
 //      call_poj(1840)
 //      call_poj(2002)
-      call_poj(2503)
+//    call_poj(2503)
+    call_poj(3253)
 
 
     return 0;
