@@ -11,7 +11,7 @@
 
 #define MAX 18750000
 
-short hash[MAX * 2 + 100];
+static short hash[MAX * 2 + 100];
 //ld warning
 //
 
