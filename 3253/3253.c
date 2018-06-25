@@ -1,6 +1,44 @@
 /*
  * 3253.c
  *
+ * ref http://poj.org/showmessage?message_id=355271
+n块小木板，只要锯n-1次，时光倒流的想法，使得每一次锯的木板最短。
+所以，每次合并最短的两块小木板，那么这一次锯的就是这块合并后的木板，并且它一定是所有这一次可能会锯的木板中最小的。
+采用优先队列小根堆实现，先将n块木板放入队列中，每次取出队首的两块，做合并，合并后的木板当做一块再放入队列中，直到合并了n-1次。输出ans即可。
+注意：1.ans要开long long
+     2.正向考虑时每次锯下n块中最长的，这种贪心是不行的。因为无法保证比先分成几组再分组锯的花费少。
+       例如：4块 7 6 5 4。 采用这种方法锯出来是46，而答案是44.实际上应该先锯出13、9两块再分组锯。
+附上代码：（29行，16ms，316K）
+
+#include<iostream>
+#include<cstdio>
+#include<cmath>
+#include<algorithm>
+#include<cstdlib>
+#include<queue>
+using namespace std;
+int n;
+long long ans;
+priority_queue<int,vector<int>,greater<int> >q;
+int main()
+{
+    scanf("%d",&n);
+    int t;
+    for(int i=1;i<=n;i++)
+    {
+        scanf("%d",&t);
+        q.push(t);
+    }
+    for(int i=1;i<=n-1;i++)
+    {
+        int a=q.top();q.pop();
+        int b=q.top();q.pop();
+        ans=ans+a+b;
+        q.push(a+b);
+    }
+    printf("%lld",ans);
+    return 0;
+}
  *  Created on: 2018年6月25日
  *      Author: yangzhen
  */
